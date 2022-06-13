@@ -1,0 +1,72 @@
+[
+ {
+    "CNES": "0033820",
+    "UF": 52,
+    "IBGE": 520170,
+    "NOME": "UNIDADE DE SAUDE DA FAMILIA PSF 307",
+    "LOGRADOURO": "RUA H",
+    "BAIRRO": "NOVO MUNDO",
+    "LATITUDE": "-15,90682",
+    "LONGITUDE": "-52,22545"
+  },
+  {
+    "CNES": "0000108",
+    "UF": 26,
+    "IBGE": 260290,
+    "NOME": "USF ALTO DOS INDIOS",
+    "LOGRADOURO": "RUA 17",
+    "BAIRRO": "PONTE DOS CARVALHOS",
+    "LATITUDE": "-8,28389",
+    "LONGITUDE": "-35,0321"
+  },
+  {
+    "CNES": "0000116",
+    "UF": 26,
+    "IBGE": 260290,
+    "NOME": "USF CHARNECA II",
+    "LOGRADOURO": "RUA 02",
+    "BAIRRO": "CHARNECA",
+    "LATITUDE": "-8,28353",
+    "LONGITUDE": "-35,02819"
+  },
+  {
+    "CNES": "0000124",
+    "UF": 26,
+    "IBGE": 260290,
+    "NOME": "USF SAO FRANCISCO I",
+    "LOGRADOURO": "RUA MANOEL DOMINGOS BARROS",
+    "BAIRRO": "SAO FRANCISCO",
+    "LATITUDE": "-8,287",
+    "LONGITUDE": "-35,035"
+  },
+  {
+    "CNES": "0000132",
+    "UF": 26,
+    "IBGE": 260290,
+    "NOME": "USF ROSARIO",
+    "LOGRADOURO": "RUA 01",
+    "BAIRRO": "ROSARIO",
+    "LATITUDE": "-8,28389",
+    "LONGITUDE": "-35,0321"
+  },
+  {
+    "CNES": "0000140",
+    "UF": 26,
+    "IBGE": 260290,
+    "NOME": "USF JUSSARAL",
+    "LOGRADOURO": "ESTRADA DA VITORIA",
+    "BAIRRO": "JUSSARAL",
+    "LATITUDE": "-8,287",
+    "LONGITUDE": "-35,035"
+  },
+  {
+    "CNES": "0000167",
+    "UF": 26,
+    "IBGE": 260290,
+    "NOME": "USF MERCES",
+    "LOGRADOURO": "RUA DO FERREIRO",
+    "BAIRRO": "MERCES",
+    "LATITUDE": "-8,287",
+    "LONGITUDE": "-35,035"
+  }
+]
