@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 
 import ubs from '../assets/lista_reduzida.json'
+import Header from '../components/Header';
 
 
 export default function PortalAdmin() {
@@ -22,11 +23,7 @@ function showCadastro(){
   return (
     <div>
 
-<div class="row p-3 mb-3 bg-primary-darken-02">
- <p className='h4 col'> Portal Administrador</p>
-         <button class="h4 br-button" type="button" aria-label="Abrir Busca" data-toggle="search" data-target=".header-search" onClick={showCadastro}> Cadastrar UBS<i class="fas fa-plus" aria-hidden="true"></i>
-        </button>
-</div>
+<Header titulo="Portal do Administrador"/>
 
 
 <div class="br-modal" id='cadastro'hidden={hidden}>
@@ -95,7 +92,7 @@ function showCadastro(){
               </div>
             </div>
       
-            <div class="br-table" title="Tabela UBSs">
+            <div class="p-3 br-table" title="Tabela UBSs" >
         <div class="table-header">
           <div class="top-bar">
             <div class="table-title"> Unidades Básicas de Saúde - UBSs</div>
@@ -103,17 +100,17 @@ function showCadastro(){
           </div>
         </div>
         <table>
-          <thead>
+          <thead >
             <tr>
-              <th class="border-bottom" scope="col"> CNES </th>
-              <th class="border-bottom border-left" scope="col"> UF </th>
-              <th class="border-bottom border-left" scope="col"> IBGE </th>
-              <th class="border-bottom border-left" scope="col"> NOME </th>
-              <th class="border-bottom border-left" scope="col"> LOGRADOURO </th>
-              <th class="border-bottom border-left" scope="col"> BAIRRO </th>
-              <th class="border-bottom border-left" scope="col"> LATITUDE </th>
-              <th class="border-bottom border-left" scope="col"> LONGITUDE </th>
-              <th class="border-bottom border-left" colspan="3" scope="col"></th>
+              <th class="border-bottom border-left border-top" scope="col"> CNES </th>
+              <th class="border-bottom border-left border-top" scope="col"> UF </th>
+              <th class="border-bottom border-left border-top" scope="col"> IBGE </th>
+              <th class="border-bottom border-left border-top" scope="col"> NOME </th>
+              <th class="border-bottom border-left border-top" scope="col"> LOGRADOURO </th>
+              <th class="border-bottom border-left border-top" scope="col"> BAIRRO </th>
+              <th class="border-bottom border-left border-top" scope="col"> LATITUDE </th>
+              <th class="border-bottom border-left border-top" scope="col"> LONGITUDE </th>
+              <th class="border-bottom border-left border-top border-right" colspan="3" scope="col"></th>
               
             </tr>
           </thead>
@@ -122,17 +119,21 @@ function showCadastro(){
 								{dados.map((ubs) => (
                   <tbody>
                     <tr>
-                    <td class="border-right" rowspan="1" scope="col">{ubs.CNES}</td>
-                    <td class="border-right">{ubs.UF}</td>
-                    <td class="border-right">{ubs.IBGE}</td>
-                    <td class="border-right">{ubs.NOME}</td>
-                    <td class="border-right">{ubs.LOGRADOURO}</td>
-                    <td class="border-right">{ubs.BAIRRO}</td>
-                    <td class="border-right">{ubs.LATITUDE}</td>
-                    <td class="border-right"> {ubs.LONGITUDE}</td>
-                    <td>
-                        <button class="br-button secondary circle mt-3 mt-sm-0 " type="button" aria-label="Ícone ilustrativo"><i class="fa fa-check" aria-hidden="true"></i>
-                        </button>
+                    <td class="border-right border-left" rowspan="1" scope="col">{ubs.CNES}
+                    </td>
+                    <td class="border-right">{ubs.UF}
+                    </td>
+                    <td class="border-right">{ubs.IBGE}
+                    </td>
+                    <td class="border-right">{ubs.NOME}
+                    </td>
+                    <td class="border-right">{ubs.LOGRADOURO}
+                      </td>
+                     <td class="border-right">{ubs.BAIRRO}
+                      </td>
+                    <td class="border-right">{ubs.LATITUDE}
+                    </td>
+                    <td class="border-right"> {ubs.LONGITUDE} 
                     </td>
                     <td class="border-right">
                     <button class="br-button secondary circle mt-3 mt-sm-0 " type="button" aria-label="Ícone ilustrativo"><i class="fa fa-trash-o" aria-hidden="true"></i>

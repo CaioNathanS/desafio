@@ -3,9 +3,28 @@
     text-align: left;
     
 }
+
+
 a:focus{
     text-decoration: none;
 }
 a:hover{
     text-decoration: none;
+}
+
+input .list{
+    width: 500%;
+}
+.inputList{
+    min-width:40px;
+    max-width: 90px;
+    height: 100%;
+}
+.inputNumber{
+    min-width: 80px;
+    height: 100%;
+}
+.inputAjuste{
+    min-width:120px;
+    height: 100%;
 }
