@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 
-import ubs from '../assets/unidades_de_saude.json'
+import ubs from '../assets/unidades_de_saude.json';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import usuarios from '../assets/lista_usuarios.json';
 
 export default function LandingPage() {
+
+  const history=useHistory();
  
+  const users = usuarios;
   const dados = ubs.slice(0,500);
   const [itens,setItens]=useState([]);
   const [itensPerPage,setItensPerPage]=useState(50);
@@ -17,6 +21,8 @@ export default function LandingPage() {
   const startIndex= currentPage*itensPerPage;
   const endIndex= startIndex + itensPerPage;
   const currentItens = itens.slice(startIndex,endIndex);
+  const [email,setEmail] = useState('');
+  const [senha,setSenha] = useState('');
   
   useEffect(()=>{
   
@@ -29,6 +35,31 @@ export default function LandingPage() {
       setCurrentPage(0)
   },
   [itensPerPage])
+
+  function handleLogin(e) {
+    e.preventDefault();
+    const findEmail = users.find(acc=> ( 
+    acc.email === email
+  ));
+  if(findEmail){
+    if(findEmail.senha === senha){
+      alert(`Bem vindo ${findEmail.nome}!`)
+      if(findEmail.admin === true){
+        localStorage.setItem('admin',true)
+        history.push('/admin')
+      }else{
+        history.push('/visitante')
+        localStorage.setItem('admin',false)
+      }
+      
+      localStorage.setItem('nome',findEmail.nome)
+    }else{
+      alert('Senha Incorreta!')
+    }
+  }else{
+    alert('Email ou senha inválidos!')
+  }
+  }
 
   return (
     <div>
@@ -66,7 +97,7 @@ export default function LandingPage() {
         <div class="col-sm">
           <div>
             <h4>Usuário</h4><span class="br-divider sm my-3"></span>
-            <form>
+            <form onSubmit={handleLogin}>
       
       <div class="row">
         <div class="col-sm">
@@ -76,24 +107,28 @@ export default function LandingPage() {
                <div class="col">
                 <div class="br-input small input-button">
                    <label for="input-login-small">Email</label>
-                  <input id="input-login-small" type="text" placeholder="Digite seu email"/>
+                  <input 
+                  onChange={(e)=>setEmail(e.target.value)}
+                  id="input-login-small" type="text" placeholder="Digite seu email" required/>
                 </div>
                </div>
                <div>
                <div class="col">
              <div class="br-input small input-button">
             <label for="input-password">Senha</label>
-            <input id="input-password" type="password" placeholder="Digite sua senha"/>
+            <input 
+            onChange={(e)=>setSenha(e.target.value)}
+            id="input-password" type="password" placeholder="Digite sua senha" required/>
           </div>
         </div>
       </div>
 
-      <Link to='/admin'>
+     
       <div class="col ajuste">
       <button class="br-button success" type="submit">Entrar
       </button>
       </div>
-      </Link>
+     
             </div>
             </div>
           </div>

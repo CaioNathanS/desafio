@@ -21,6 +21,7 @@ export default function PortalVisitante() {
   const startIndex= currentPage*itensPerPage;
   const endIndex= startIndex + itensPerPage;
   const currentItens = itens.slice(startIndex,endIndex);
+  const nome = localStorage.getItem('nome')
   
   useEffect(()=>{
   
@@ -37,7 +38,7 @@ export default function PortalVisitante() {
     <div>
 
 
-      <Header titulo="Portal do Visitante"/>
+      <Header titulo="Portal do Visitante" nome={nome}/>
 
       
      <Tabela user="Visitante"/>

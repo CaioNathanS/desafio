@@ -1,0 +1,32 @@
+[
+  {
+    "email": "admin@example",
+    "senha": "12345",
+    "admin": true,
+    "nome": "Nathan"
+  },
+  {
+    "email": "user@example",
+    "senha": "12345",
+    "admin": false,
+    "nome": "Visitante"
+  },
+  {
+    "email": "admin2@example",
+    "senha": "1234567",
+    "admin": true,
+    "nome": "Admin"
+  },
+  {
+    "email": "abc@example",
+    "senha": "12345s",
+    "admin": false,
+    "nome": "ABC"
+  },
+  {
+    "email": "core@example",
+    "senha": "12345",
+    "admin": true,
+    "nome": "Core"
+  }
+]

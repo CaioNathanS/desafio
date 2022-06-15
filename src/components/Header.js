@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import logoGovBr from '../assets/logoGovBR.png'
 
-export default function Header({titulo}) {
+export default function Header({titulo,nome}) {
 
 
   return( 
@@ -15,7 +15,7 @@ export default function Header({titulo}) {
             <div class="d-flex">
             <img src={logoGovBr} alt="logo"/>
             </div>
-            <span class="br-divider vertical mx-half mx-sm-1"></span>
+            
               <div class="header-sign">{titulo}</div>
             </div>
             <div class="header-actions">
@@ -28,18 +28,28 @@ export default function Header({titulo}) {
                   </div>
                   {titulo!=='Portal do Administrador'?
                    <a class="br-item">Lista de UBSs</a> :<></> }
-                  {titulo==='Portal do Administrador'?
-                    <a>Cadastrar UBS </a> :
-                    <></> }
+                  
                   
                 </div>
-              </div><span class="br-divider vertical mx-half mx-sm-1"></span>
+              </div> <span class="br-divider vertical mx-half mx-sm-1"></span>
              
             
               <div class="header-search-trigger">
               <a class="br-item">Lista de UBSs</a>
               </div>
-              <div class="header-login">
+              {
+                titulo==='Portal do Administrador' || titulo ==='Portal do Visitante'?
+                <div class="header-login">
+                <div class="header-sign-in">
+                  <button class="br-sign-in small" 
+                  type="button" 
+                  >
+                    <i class="fas fa-user" aria-hidden="true"></i>
+                    <span class="d-sm-inline">{nome}</span>
+                  </button>
+                </div>
+                </div>
+                : <div class="header-login">
                 <div class="header-sign-in">
                   <button class="br-sign-in small" 
                   type="button" 
@@ -48,12 +58,17 @@ export default function Header({titulo}) {
                     <span class="d-sm-inline">Entrar</span>
                   </button>
                 </div>
-          
-              </div>
+                </div>
+              }
+               
+             
              </div>
             </div>
            </div>
       </header>
+
+    
+
     </div>
     
   )
