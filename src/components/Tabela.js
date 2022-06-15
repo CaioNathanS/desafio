@@ -7,6 +7,7 @@ import PaginationComponent from '../components/PaginationComponent';
 
 export default function Tabela({user}) {
 
+    const[pesquisa,setPesquisa]=useState('');
     const dados = ubs.slice(0,200);
     const [itens,setItens]=useState([]);
     const [itensPerPage,setItensPerPage]=useState(50);
@@ -28,26 +29,44 @@ export default function Tabela({user}) {
     },
     [itensPerPage])
 
-    function filter() {
-        setItens(dados.slice(0,10))
+    function filtrar(pesquisa) {
+      const search = pesquisa.toUpperCase()
+      const filtro = dados.filter((ubs)=> 
+      ubs.NOME.includes(search)
+      );
+
+      
+        setItens(filtro);
+    }
+
+    function deletarUbs(nome) {
+      const filtro = itens.filter((ubs)=> 
+      ubs.NOME!==nome
+      );
+
+        setItens(filtro);
     }
   
 
   return( 
     <div>
+      
 
         <div class="container-fluid header-search">
               <div class="br-input has-icon">
                 <label for="searchbox-79970">
                 <h3 style={{"font-size":"22px"}}> Pesquisa </h3>
                 </label>
+                
                 <input 
-                onChange={filter}
-                id="searchbox-79970" type="text" placeholder="Buscar"/>
+                onChange={(e)=>filtrar(e.target.value)}
+                id="searchbox-79970" type="text" placeholder="Buscar pelo nome"/>
                 <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
                 </button>
               </div>
             </div>
+
+            
 
         <div  class="container-fluid"title="Tabela UBSs">
       <div class="table-header">
@@ -91,7 +110,9 @@ export default function Tabela({user}) {
                     <td class="border-right"> {ubs.LONGITUDE}</td>   
                     {user!== 'Visitante' ? 
                     <td class="border-right">
-                    <button class="br-button secondary circle mt-3 mt-sm-0 " type="button" aria-label="Ícone ilustrativo"><i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <button 
+                    onClick={()=>deletarUbs(ubs.NOME)}
+                    class="br-button secondary circle mt-3 mt-sm-0 " type="button" aria-label="Ícone ilustrativo"><i class="fa fa-trash-o" aria-hidden="true"></i>
                     </button>
                     </td>
                     :
