@@ -45,11 +45,11 @@ export default function LandingPage() {
     if(findEmail.senha === senha){
       alert(`Bem vindo ${findEmail.nome}!`)
       if(findEmail.admin === true){
-        localStorage.setItem('admin',true)
+        localStorage.setItem('admin','true')
         history.push('/admin')
       }else{
         history.push('/visitante')
-        localStorage.setItem('admin',false)
+        localStorage.setItem('admin','false')
       }
       
       localStorage.setItem('nome',findEmail.nome)

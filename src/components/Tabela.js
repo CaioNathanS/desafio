@@ -95,6 +95,16 @@ export default function Tabela({user}) {
       
       alert('UBS cadastrada!')
 
+      setCnes('');
+      setNome('');
+      setUf('');
+      setBairro('');
+      setLatitude('');
+      setLogradouro('');
+      setLongitude('');
+      setIbge('');
+      
+
       setHidden(true)
       setItens(changeOrdem)
     }
@@ -103,15 +113,18 @@ export default function Tabela({user}) {
 
   return( 
     <div>
-     
+     {user === 'Admin' && 
      <div class='container-fluid' style={{"textAlign":"right","marginTop":"10px"}}>
-       <button
-       id='plus'
-       onClick={showCadastro } 
-       class="br-button primary inverted  mt-3 mt-sm-0 ml-sm-3" 
-       type="button" aria-label="Ícone ilustrativo"> Cadastrar UBS
-             </button>
-             </div>
+     <button
+     id='plus'
+     onClick={showCadastro } 
+     class="br-button primary inverted  mt-3 mt-sm-0 ml-sm-3" 
+     type="button" aria-label="Ícone ilustrativo"> Cadastrar UBS
+        </button>
+    </div>
+     
+     }
+     
   
 
           <div
@@ -130,6 +143,7 @@ export default function Tabela({user}) {
             <div class="br-input">
               <label for="cnes">CNES</label>
               <input
+              value={cnes}
               onChange={(e)=>setCnes(e.target.value)}
               id="cnes" type="text" placeholder="CNES" required/>
             </div>
@@ -137,6 +151,7 @@ export default function Tabela({user}) {
             <div class="br-input">
               <label for="uf">UF</label>
               <input 
+              value={uf}
               onChange={(e)=>setUf(e.target.value)}
               id="uf" type="number" placeholder="UF" required/>
             </div>
@@ -148,31 +163,37 @@ export default function Tabela({user}) {
             </div>
             <div class="br-input">
               <label for="nome">Nome</label>
-              <input 
+              <input
+              value={nome} 
               onChange={(e)=>setNome(e.target.value)}
               id="nome" type="text" placeholder="Nome"required/>
             </div>
             <div class="br-input">
+              
               <label for="logradouro">Logradouro</label>
               <input
+              value={logradouro}
               onChange={(e)=>setLogradouro(e.target.value)}
               id="logradouro" type="text" placeholder="Logradouro"required/>
             </div>
             <div class="br-input">
               <label for="bairro">Bairro</label>
               <input 
+              value={bairro}
               onChange={(e)=>setBairro(e.target.value)}
               id="bairro" type="text" placeholder="Bairro"required/>
             </div>
             <div class="br-input">
               <label for="latitude">Latitude</label>
               <input 
+              value={latitude}
               onChange={(e)=>setLatitude(e.target.value)}
               id="latitude" type="text" placeholder="Latitude"required/>
             </div>
             <div class="br-input">
               <label for="longitude">Longitude</label>
               <input 
+              value={longitude}
               onChange={(e)=>setLongitude(e.target.value)}
               id="longitude" type="text" placeholder="Longitude"required/>
             </div>        

@@ -14,7 +14,7 @@ export default function PortalAdmin() {
   const history=useHistory();
   const admin = localStorage.getItem('admin');
 
-  if(admin!== true){   
+  if(admin!== 'true'){   
     history.push('/')
       
   }
@@ -49,7 +49,7 @@ export default function PortalAdmin() {
 <Header titulo="Portal do Administrador" nome={nome}/>
 
       
-      <Tabela/>
+      <Tabela user='Admin'/>
 
             <Footer/>
 
