@@ -27,7 +27,7 @@ export default function Header({titulo,nome}) {
                    
                   </div>
                   {titulo!=='Portal do Administrador'?
-                   <a class="br-item">Lista de UBSs</a> :<></> }
+                   <Link to='/visitante'class="br-item">Lista de UBSs</Link> :<></> }
                   
                   
                 </div>

@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 
 
 
 import ubs from '../assets/unidades_de_saude.json'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import PaginationComponent from '../components/PaginationComponent';
+
 import Tabela from '../components/Tabela';
 
 

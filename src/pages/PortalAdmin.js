@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import ubs from '../assets/lista_reduzida.json'
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import PaginationComponent from '../components/PaginationComponent';
+
 import Tabela from '../components/Tabela';
 
 export default function PortalAdmin() {

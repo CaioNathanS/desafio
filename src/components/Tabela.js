@@ -7,7 +7,7 @@ import PaginationComponent from '../components/PaginationComponent';
 
 export default function Tabela({user}) {
 
-    const[pesquisa,setPesquisa]=useState('');
+    
     const dados = ubs.slice(0,500);
     const [itens,setItens]=useState([]);
     const [itensPerPage,setItensPerPage]=useState(50);
