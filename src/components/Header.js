@@ -26,19 +26,18 @@ export default function Header({titulo,nome}) {
                     <div class="title">Acesso Rápido</div>
                    
                   </div>
-                  {titulo!=='Portal do Administrador'?
-                   <Link to='/visitante'class="br-item">Lista de UBSs</Link> :<></> }
+                  
                   
                   
                 </div>
-              </div> <span class="br-divider vertical mx-half mx-sm-1"></span>
+              
              
-            
-              <div class="header-search-trigger">
-              <a class="br-item">Lista de UBSs</a>
-              </div>
+              {titulo!=='Portal do Administrador'?
+                   <Link to='/visitante'class="br-item">Lista de UBSs</Link> :<></> }
+                   </div> <span class="br-divider vertical mx-half mx-sm-1"></span>
+              
               {
-                titulo==='Portal do Administrador' || titulo ==='Portal do Visitante'?
+                nome !==''?
                 <div class="header-login">
                 <div class="header-sign-in">
                   <button class="br-sign-in small" 
@@ -55,7 +54,7 @@ export default function Header({titulo,nome}) {
                   type="button" 
                   >
                     <i class="fas fa-user" aria-hidden="true"></i>
-                    <span class="d-sm-inline">Entrar</span>
+                    <span class="d-sm-inline">Login</span>
                   </button>
                 </div>
                 </div>

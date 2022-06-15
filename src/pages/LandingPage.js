@@ -23,6 +23,7 @@ export default function LandingPage() {
   const currentItens = itens.slice(startIndex,endIndex);
   const [email,setEmail] = useState('');
   const [senha,setSenha] = useState('');
+  const nome = localStorage.getItem('nome')
   
   useEffect(()=>{
   
@@ -64,7 +65,7 @@ export default function LandingPage() {
   return (
     <div>
       
-        <Header titulo="Landing Page"/>
+        <Header titulo="Landing Page" nome={nome}/>
       <div class="container-fluid">
       <div class="row mt-3">
         <div class="col-sm">
