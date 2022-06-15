@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 
 
 import ubs from '../assets/unidades_de_saude.json'
-import PaginationComponent from '../components/PaginationComponent';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function LandingPage() {
  
@@ -34,19 +34,19 @@ export default function LandingPage() {
     <div>
       
         <Header titulo="Landing Page"/>
-      
+      <div class="container-fluid">
       <div class="row mt-3">
         <div class="col-sm">
-          <div class="p-3">
-            <p>Visitante</p><span class="br-divider dashed sm my-3"></span>
+          <div>
+            <h4>Visitante</h4><span class="br-divider sm my-3"></span>
             
           <div class="row">
               <div class="col">
                 <div class="br-card">
                   <div class="card-content">
                      <p>Olá Visitante!</p>
-                     <p>Sejá bem vindo ao nosso portal.</p>
-                     <p>Aqui você pode acessar a lista de Unidades Básicas de Saúde. </p>
+                     <p>Sejá bem vindo ao portal.</p>
+                     <p>Veja a lista UBSs. </p>
                    </div>
                  <div class="card-footer">
                  <Link to='/visitante'>
@@ -64,8 +64,8 @@ export default function LandingPage() {
         </div>
         </div>
         <div class="col-sm">
-          <div class="p-3">
-            <p>Usuário</p><span class="br-divider dashed sm my-3"></span>
+          <div>
+            <h4>Usuário</h4><span class="br-divider sm my-3"></span>
             <form>
       
       <div class="row">
@@ -104,56 +104,9 @@ export default function LandingPage() {
         </div> 
         
       </div>
-      <div class="p-3 br-table" title="Tabela UBSs">
-        <div class="table-header">
-          <div class="top-bar">
-            <div class="table-title"> Unidades Básicas de Saúde - UBSs</div>
-            
-          </div>
-        </div>
-        <table>
-          <thead>
-          <tr>
-          <th class="border-bottom border-left border-top" scope="col"> CNES </th>
-              <th class="border-bottom border-left border-top" scope="col"> UF </th>
-              <th class="border-bottom border-left border-top" scope="col"> IBGE </th>
-              <th class="border-bottom border-left border-top" scope="col"> NOME </th>
-              <th class="border-bottom border-left border-top" scope="col"> LOGRADOURO </th>
-              <th class="border-bottom border-left border-top" scope="col"> BAIRRO </th>
-              <th class="border-bottom border-left border-top" scope="col"> LATITUDE </th>
-              <th class="border-bottom border-left border-top border-right" scope="col"> LONGITUDE </th>
-              
-              
-            </tr>
-          </thead>
-
-
-           {
-                currentItens.map(ubs=>{
-                    return <tbody>
-                    <tr>
-                    <td class="border-right border-left" rowspan="1" scope="col">{ubs.CNES}</td>
-                    <td class="border-right">{ubs.UF}</td>
-                    <td class="border-right">{ubs.IBGE}</td>
-                    <td class="border-right">{ubs.NOME}</td>
-                    <td class="border-right">{ubs.LOGRADOURO}</td>
-                    <td class="border-right">{ubs.BAIRRO}</td>
-                    <td class="border-right">{ubs.LATITUDE}</td>
-                    <td class="border-right"> {ubs.LONGITUDE}</td>                   
-                  </tr>
-                  </tbody>
-                    
-                })
-            }
-
-
-
-          </table>
-          </div>
-    
-           
-      <PaginationComponent setCurrentPage={setCurrentPage} pages={pages} currentPage={currentPage}/>
-
+      </div>
+     
+      <Footer/>
       
     </div>
   );

@@ -1,13 +1,35 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { useState } from 'react';
 
-
-import ubs from '../assets/lista_reduzida.json'
+import ubs from '../assets/unidades_de_saude.json'
+import Footer from '../components/Footer';
 import Header from '../components/Header';
-
+import PaginationComponent from '../components/PaginationComponent';
+import Tabela from '../components/Tabela';
 
 export default function PortalAdmin() {
  
-const dados = ubs;
+  const dados = ubs.slice(0,200);
+  const [itens,setItens]=useState([]);
+  const [itensPerPage,setItensPerPage]=useState(50);
+  const [currentPage,setCurrentPage]=useState(0);
+  const pages = Math.ceil(itens.length/itensPerPage);
+  const startIndex= currentPage*itensPerPage;
+  const endIndex= startIndex + itensPerPage;
+  const currentItens = itens.slice(startIndex,endIndex);
+  
+  useEffect(()=>{
+  
+          setItens(dados)
+      },
+      [])
+  
+  useEffect(()=>{
+  
+      setCurrentPage(0)
+  },
+  [itensPerPage])
+
 const [hidden,setHidden] = useState('true');
 
 function showCadastro(){
@@ -25,8 +47,7 @@ function showCadastro(){
 
 <Header titulo="Portal do Administrador"/>
 
-
-<div class="br-modal" id='cadastro'hidden={hidden}>
+<div class="container-fluid br-modal" id='cadastro'hidden={hidden}>
   <div class="container-fluid p-1 p-sm-4">
     <div class="br-modal-header">
       <div class="br-modal-title" title="Título">Unidade de Saúde</div>
@@ -81,77 +102,10 @@ function showCadastro(){
     </div>
   </div>
 </div>
-
-
-<div class="p-3 header-search">
-              <div class="br-input has-icon">
-                <label for="searchbox-79970">Pesquisa</label>
-                <input id="searchbox-79970" type="text" placeholder="Buscar pelo nome"/>
-                <button class="br-button circle small" type="button" aria-label="Pesquisar"><i class="fas fa-search" aria-hidden="true"></i>
-                </button>
-              </div>
-            </div>
       
-            <div class="p-3 br-table" title="Tabela UBSs" >
-        <div class="table-header">
-          <div class="top-bar">
-            <div class="table-title"> Unidades Básicas de Saúde - UBSs</div>
-            
-          </div>
-        </div>
-        <table>
-          <thead >
-            <tr>
-              <th class="border-bottom border-left border-top" scope="col"> CNES </th>
-              <th class="border-bottom border-left border-top" scope="col"> UF </th>
-              <th class="border-bottom border-left border-top" scope="col"> IBGE </th>
-              <th class="border-bottom border-left border-top" scope="col"> NOME </th>
-              <th class="border-bottom border-left border-top" scope="col"> LOGRADOURO </th>
-              <th class="border-bottom border-left border-top" scope="col"> BAIRRO </th>
-              <th class="border-bottom border-left border-top" scope="col"> LATITUDE </th>
-              <th class="border-bottom border-left border-top" scope="col"> LONGITUDE </th>
-              <th class="border-bottom border-left border-top border-right" colspan="3" scope="col"></th>
-              
-            </tr>
-          </thead>
-          {dados !== '' && 
-               <>
-								{dados.map((ubs) => (
-                  <tbody>
-                    <tr>
-                    <td class="border-right border-left" rowspan="1" scope="col">{ubs.CNES}
-                    </td>
-                    <td class="border-right">{ubs.UF}
-                    </td>
-                    <td class="border-right">{ubs.IBGE}
-                    </td>
-                    <td class="border-right">{ubs.NOME}
-                    </td>
-                    <td class="border-right">{ubs.LOGRADOURO}
-                      </td>
-                     <td class="border-right">{ubs.BAIRRO}
-                      </td>
-                    <td class="border-right">{ubs.LATITUDE}
-                    </td>
-                    <td class="border-right"> {ubs.LONGITUDE} 
-                    </td>
-                    <td class="border-right">
-                    <button class="br-button secondary circle mt-3 mt-sm-0 " type="button" aria-label="Ícone ilustrativo"><i class="fa fa-trash-o" aria-hidden="true"></i>
-                   </button>
-                    </td>
-                    
-                   
-                  </tr>
-                  </tbody>
-                  ))} 
-                </>
-            }
-        
-        </table>
-      </div>
+      <Tabela/>
 
-
-
+            <Footer/>
 
       
     </div>

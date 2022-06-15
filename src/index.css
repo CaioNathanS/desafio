@@ -3,7 +3,12 @@
     text-align: left;
     
 }
-
+.flex{
+    display: flex;
+}
+.size{
+    font-size: 50px;
+}
 
 a:focus{
     text-decoration: none;

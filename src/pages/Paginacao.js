@@ -6,7 +6,7 @@ import ubs from '../assets/unidades_de_saude.json'
 
 export default function Paginacao() {
 
-const dados = ubs.slice(0,500);
+const dados = ubs.slice(0,200);
 const [itens,setItens]=useState([]);
 const [itensPerPage,setItensPerPage]=useState(50);
 const [currentPage,setCurrentPage]=useState(0);
